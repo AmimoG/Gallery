@@ -1,63 +1,62 @@
-from django.http  import HttpResponse, Http404
 from django.shortcuts import render, redirect
-from .models import Image, Location, Category
-
+from django.http  import HttpResponse,Http404
+import datetime as dt
+from .models import Article
 
 # Create your views here.
+def welcome(request):
+    return render(request, 'welcome.html')
 
+def news_of_day(request):
+    date = dt.date.today()
+    news = Article.todays_news()
+    return render(request, 'all-news/today-news.html', {"date": date,"news":news})
 
-
-def index(request):
-    images = Image.get_all_images()
-    locations = Location.objects.all()
-    title = 'Sunset'
-
-    return render(request, 'index.html', {'title':title, 'images':images, 'locations':locations})
-
-def single(request,category_name,image_id):
-    # images = Image.get_image_by_id(image_id)
-    title = 'Image'
-    locations = Location.objects.all()
-    # category = Category.get_category_id(id = image_category)
-    image_category = Image.objects.filter(image_category__name = category_name)
+# View Function to present news from past days
+def past_days_news(request, past_date):
     try:
-        image = Image.objects.get(id = image_id)
+        # Converts data from the string Url
+      
+
+     date = dt.datetime.strptime(past_date, '%Y-%m-%d').date()
+    except ValueError:
+        # Raise 404 error when ValueError is thrown
+        raise Http404()
+        assert False
+
+    if date == dt.date.today():
+        return redirect(news_today)
+
+    news = Article.days_news(date)
+    return render(request, 'all-news/past-news.html',{"date": date,"news":news})
+
+def convert_dates(dates):
+
+    # Function that gets the weekday number for the date.
+    day_number = dt.date.weekday(dates)
+
+    days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday',"Sunday"]
+
+    # Returning the actual day of the week
+    day = days[day_number]
+    return day
+
+def search_results(request):
+
+    if 'article' in request.GET and request.GET["article"]:
+        search_term = request.GET.get("article")
+        searched_articles = Article.search_by_title(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all-news/search.html',{"message":message,"articles": searched_articles})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-news/search.html',{"message":message})
+
+def article(request,article_id):
+    try:
+        article = Article.objects.get(id = article_id)
     except DoesNotExist:
         raise Http404()
-    return render(request,"single.html",{'title':title,"image":image, "locations":locations, "image_category":image_category})
-
-def search_image(request):
-    title = 'Search'
-    categories = Category.objects.all()
-    locations = Location.objects.all()
-    if 'image_category' in request.GET and request.GET['image_category']:
-        search_term = request.GET.get('image_category')
-        found_results = Image.search_by_category(search_term)
-        message = f"{search_term}"
-        print(search_term)
-        print(found_results)
-
-        return render(request, 'search.html',{'title':title,'images': found_results, 'message': message, 'categories': categories, "locations":locations})
-    else:
-        message = 'You havent searched yet'
-        return render(request, 'search.html',{"message": message})
-
-
-def location_filter(request, image_location):
-    locations = Location.objects.all()
-    location = Location.get_location_id(image_location)
-    images = Image.filter_by_location(image_location)
-    title = f'{location} Photos'
-    return render(request, 'location.html', {'title':title, 'images':images, 'locations':locations, 'location':location})
-
-
-
-
-
-
-
-
-
-# def category(request,search_term):
-#     categories = Image.get_image_by_cat(search_term)
-#     return render(request, 'category.html', {"categories": categories})
+    return render(request,"all-news/article.html", {"article":article})
