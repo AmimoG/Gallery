@@ -15,14 +15,14 @@
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/today-news.css' %}">
   {% endblock %}
 
 </head>
 <body>
     {% include "navbar.html" %}
 
-    {% block content %} <h1 class='text-center'>Pictures for {{date|date:"l d-F Y"}}</h1> {%endblock%}
+    <!-- {% block content %} <h1 class='text-center'>Pictures for {{date|date:"l d-F Y"}}</h1> {%endblock%} -->
 
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

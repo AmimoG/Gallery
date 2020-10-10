@@ -6,47 +6,119 @@
 
 <div class="container">
 
-  <!-- Looping through news   -->
-  {% for news_item in news %}
-    <div class="col-md-6">
-        <div class="row">
-            <div class="column">
-                <div class="card text-center">
-                    <div class="card-header">
-                    <img class="text-center" src="{{news_item.article_image.url}}" class="img-responsive" width="300px" height="200px" alt="Image">
+  <body>
+    <div class="container-fluid">
+        <!-- Home Page -->
+        <div class="jumbotron">
+            <div class="container">
+                <!-- <img src="./images/logo.png" alt="logo" class="mx-auto d-block"> -->
+                <h1 class="text-white text-center welcome h-text">Welcome</h1>
+                <h1 class="text-white text-center delani h-text">TO Nostalgic</h1>
+                <h6 class="text-white text-center text h-text smaller-text">We bring you to the past you are craving in this wonderful future</h6>
+                <!-- <a href="#about"><img src="./images/mouse_click.png" class="mx-auto d-block click" alt="mouse click" id="bounce"></a> -->
+            </div>
+        </div>
+        <!-- /Home Page -->
+
+        <!-- About -->
+        <div class="about" id="about">
+            <h1 class="text-center">ABOUT US</h1>
+            <p>
+              Nostalgia is a medicine, it makes people feel that their life have roots and continuity. 
+            </p>
+            <p>
+              It made people feel good about themselves and their relationships. 
+            </p>
+            <p>
+              It provided a texture to peoples lives and gave them strength to move forward.<br> Nostalgia brings pictures that allow a person to travel to their past and collect the memories they left there.
+            </p>
+        </div>
+        <!-- /About -->
+        <br>
+
+        <!-- Gallery -->
+        <div class="portfolio container-fluid">
+            <br><br><br>
+            <h1 class="text-center b-text">Gallery</h1><br>
+            <div class="col-md-12 mx-auto">
+                <div class="row">                    
+                    <div class="col-md-3">
+                        <div class="portimg">
+                            <img src="/gallery/static/images/1.jpg" alt="portfolio-images" class="image img-fluid">
+                            <div>
+                                <div class="porttext" style="display:none"> JIM CARREY</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                    <h2 class="text-center"> {{ news_item.title }} </h2>
-                    <h2 class="text-center"> {{ news_item.post }} </h2>
-                    <!-- <a href="#" class="btn btn-primary">Read More</a> -->
+                    <div class="col-md-3">
+                        <div class="portimg">
+                            <img src="/gallery/static/images/2.jpg" alt="portfolio-images" class="image img-fluid">
+                            <div>
+                                <div class="porttext" style="display:none">PYRAMID</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="portimg">
+                            <img src="/gallery/static/images/3.jpg" alt="portfolio-images" class="image img-fluid">
+                            <div>
+                                <div class="porttext" style="display:none">ONTARIO</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="portimg">
+                            <img src="/gallery/static/images/4.jpg" alt="portfolio-images" class="image img-fluid">
+                            <div class="disc1">
+                                <div class="porttext" style="display:none">Pluto Dark</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="portimg">
+                            <img src="./images/work5.jpg" alt="portfolio-images" class="image img-fluid">
+                            <div class="porttext" style="display:none">HAVE A GOOD DAY</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="portimg">
+                            <img src="./images/work6.jpg" alt="portfolio-images" class="image img-fluid">
+                            <div class="porttext" style="display:none">BUTTON</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="portimg">
+                            <img src="./images/work7.jpg" alt="portfolio-images" class="image img-fluid">
+                            <div class="porttext" style="display:none">BURNED</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="portimg">
+                            <img src="./images/work8.jpg" alt="portfolio-images" class="image img-fluid">
+                            <div class="porttext" style="display:none">GIRAFFE</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
                 </div>
             </div>
         </div>
+        <!-- /Gallery -->
         <br>
-
-        </div>
-    </div>
-  </div>
-  {% endfor %}
-
+        <!-- Footer -->
+        <footer class="text-center">Nostalgic <br>  ©  2020</footer> 
+        <!-- /Footer -->
+    </div>    
+  </body>
   <!-- <video class="video-intro" autoplay loop muted>
     <source src="https://mdbootstrap.com/img/video/city.mp4" type="video/mp4" >
   </video> -->
 
 </div>
 
+
+
 {% endblock %}
 
-<!-- <div class="card text-center">
-  <div class="card-header">
-    <img src="{{news_item.article_image.url}}" class="img-responsive" width="350px" height="300px" alt="Image">
-  </div>
-  <div class="card-body">
-    <h2 class="text-center"> {{ news_item.title }} </h2>
-    <h2 class="text-center"> {{ news_item.post }} </h2>
-    <a href="#" class="btn btn-primary">Read More</a>
-  </div>
-  <div class="card-footer text-muted">
-    2 days ago
-  </div>
-</div> -->
