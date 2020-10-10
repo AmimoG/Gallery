@@ -8,20 +8,23 @@
 
   <!-- Looping through news   -->
   {% for news_item in news %}
-  <div class="jumbotron">
-    <div class="row">
-      <div class="card text-center">
-        <div class="card-header">
-          <img class="text-center" src="{{news_item.article_image.url}}" class="img-responsive" width="450px" height="300px" alt="Image">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="column">
+                <div class="card text-center">
+                    <div class="card-header">
+                    <img class="text-center" src="{{news_item.article_image.url}}" class="img-responsive" width="300px" height="200px" alt="Image">
+                    </div>
+                    <div class="card-body">
+                    <h2 class="text-center"> {{ news_item.title }} </h2>
+                    <h2 class="text-center"> {{ news_item.post }} </h2>
+                    <!-- <a href="#" class="btn btn-primary">Read More</a> -->
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-          <h2 class="text-center"> {{ news_item.title }} </h2>
-          <h2 class="text-center"> {{ news_item.post }} </h2>
-          <!-- <a href="#" class="btn btn-primary">Read More</a> -->
-        </div>
-      </div>
-      <br>
+        <br>
 
+        </div>
     </div>
   </div>
   {% endfor %}
