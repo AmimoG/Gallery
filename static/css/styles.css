@@ -2,20 +2,20 @@ h2 {
     color:white;
     margin-top:2%;
     font-size:35px;
-    font-family: 'Special Elite', cursive;
+    font-family: 'Times New Roman', Times, serif;
     }
     .boded{
-    background-image:url(/static/images/bg.jpeg);
+    background-image:url(/static/images/landing.jpeg);
     padding-top:2%;
     background-repeat:no-repeat;
     background-position:center;
     background-size:cover;
     }
-    .overlay{
+    /* .overlay{
     margin:0;
     padding:0;
     background-color:rgba(49, 83, 15,0.3);
-    }
+    } */
     .imagea{
     margin-top:34%;
     font-size:45px;
@@ -25,13 +25,13 @@ h2 {
     text-decoration:none;
     }
     .image{
-    font-family: 'Special Elite', cursive;
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom:18%;
     
     }
     body{
      scroll-behavior: smooth;
-    background-image:url(/static/images/g.jpg);
+    background-image:url(/static/images/landing.jpeg);
     background-attachment:fixed;
     background-repeat:no-repeat;
     background-position:center;
@@ -46,26 +46,24 @@ h2 {
     }
     h3{
     color:white;
-    font-family: 'Special Elite', cursive;
+    font-family: 'Times New Roman', Times, serif;
     }
     #locations{
     color:white;
-    font-family: 'Special Elite', cursive;
+    font-family: Arial, Helvetica, sans-serif;
     }
     hr{
     background:white;
     height:2px;
     }
     #imageheader{
-    font-family: 'Yeseva One', cursive;
+    font-family: Arial, Helvetica, sans-serif;
     }
     
     .imgdesc{
-    font-family: 'Vollkorn', serif;
+    font-family: Arial, Helvetica, sans-serif;
     }
-    #foundnon{
-    
-    }
+
     #found{
     margin-bottom:3%;
     }
